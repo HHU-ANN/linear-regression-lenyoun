@@ -24,7 +24,7 @@ def lasso(data):
     for i in range(1000000):
         w[1:] -= alpha * (x[:, 1:].T.dot(x[:, 1:].dot(w[1:]) - y) + lam * np.sign(w[1:]))
         w[0] -= alpha * (x[:, 0].T.dot(x[:, 0].dot(w[0]) - y))
-    return np.dot(data, w[1:]) + w[0]
+    return np.dot(data, w[1:]) - w[0]
 
 def read_data(path='./data/exp02/'):
     x = np.load(path + 'X_train.npy')
