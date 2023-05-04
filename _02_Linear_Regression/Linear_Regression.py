@@ -11,14 +11,14 @@ except ImportError as e:
 def ridge(data):
     x, y = read_data()
     x = np.insert(x, 0, 1, axis=1)
-    lam = 0.001
+    lam = 0.01
     w = np.linalg.inv(x.T.dot(x) + lam * np.identity(x.shape[1])).dot(x.T).dot(y)
     return np.dot(data, w[1:]) + w[0]
     
 def lasso(data):
     x, y = read_data()
     x = np.insert(x, 0, 1, axis=1)
-    lam = 0.001
+    lam = 0.01
     w = np.zeros(x.shape[1])
     alpha = 1e-11
     for i in range(150000):
