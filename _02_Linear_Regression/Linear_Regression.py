@@ -11,7 +11,7 @@ except ImportError as e:
 def ridge(data):
     x, y = read_data()
     x = np.insert(x, 0, 1, axis=1)
-    lam = 0.1
+    lam = 0.2
     w = np.linalg.inv(x.T.dot(x) + lam * np.identity(x.shape[1])).dot(x.T).dot(y)
     return np.dot(data, w[1:]) + w[0]
     
