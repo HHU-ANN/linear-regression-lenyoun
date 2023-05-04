@@ -20,7 +20,7 @@ def lasso(data):
     x = np.insert(x, 0, 1, axis=1)
     lam = 0.01
     w = np.zeros(x.shape[1])
-    alpha = 1
+    alpha = 0.8
     for i in range(10000):
         w[1:] -= alpha * (x[:, 1:].T.dot(x[:, 1:].dot(w[1:]) - y) + lam * np.sign(w[1:]))
         w[0] -= alpha * (x[:, 0].T.dot(x[:, 0].dot(w[0]) - y))
