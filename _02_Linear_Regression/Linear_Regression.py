@@ -18,7 +18,7 @@ def ridge(data):
 def lasso(data):
     x, y = read_data()
     x = np.insert(x, 0, 1, axis=1)
-    lam = 0.01
+    lam = 30
     w = np.zeros(x.shape[1])
     alpha = np.exp(-20)
     for i in range(1000000):
